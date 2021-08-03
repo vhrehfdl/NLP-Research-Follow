@@ -1,7 +1,7 @@
 작성 
 
 ## 참여자
-이정훈, 구선민
+이정훈, 구선민, 김소연, 김지성, 남궁민상, 류지은
 <br><br>
 
 ## 토론
@@ -37,9 +37,10 @@
 
   >- A4(소연) 저도 이부분 궁금해요! 제가 이해한 선으로는 섹션 3.1에서 설명하듯, social media conversation과 같은 open dataset에서 , 시작점이 될 가능성있는 (임의의) 부분을 root로 두고 해당 root에 따라 쭉 발생하는 path 하나하나가 RL에서의 a single training trajectory와 같은? 싱글 데이터 뭉치..? 하나하나가 되는 것이라 이해했습니다..
 
-Q5 (민상). 이번 논문을 읽으며 도움이 된 참고자료가 있다면 모아봐도 좋을 것 같아요!
 
-A5 (민상). 저는 이번 논문을 읽으며 완전 기초적인 개념들부터 복습을 해야 했네요ㅎㅎㅎ
+- Q5 (민상). 이번 논문을 읽으며 도움이 된 참고자료가 있다면 모아봐도 좋을 것 같아요!
+
+>- A5 (민상). 저는 이번 논문을 읽으며 완전 기초적인 개념들부터 복습을 해야 했네요ㅎㅎㅎ
 
 End-to-end model에 대한 기본 개념: [https://towardsdatascience.com/e2e-the-every-purpose-ml-method-5d4f20dafee4](https://towardsdatascience.com/e2e-the-every-purpose-ml-method-5d4f20dafee4)
 

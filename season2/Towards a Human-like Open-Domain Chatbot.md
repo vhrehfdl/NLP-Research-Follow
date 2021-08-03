@@ -4,9 +4,9 @@
 
 A2 (선민). 저도 직접적으로 모델에 영향을 미치기에는 어렵다고 생각합니다. 본 논문에서는 SSA를 통해 비교적 객관적인 sensibleness와 비교적 주관적인 specificity를 통해 챗봇의 human-likeness를 평가할 수 있 있는 지표를 소개했다는 점에서 의의가 있다고 생각합니다.
 
-Q2 (정훈). 디코딩 과정은 N개의 독립적인 후보 답변 중 final output의 가장 가까운 값을 하나 출력한다고 하는데 후보 중 선택하는 기준과 방법은 무엇일까요?
+- Q2 (정훈). 디코딩 과정은 N개의 독립적인 후보 답변 중 final output의 가장 가까운 값을 하나 출력한다고 하는데 후보 중 선택하는 기준과 방법은 무엇일까요?
 
-A2 (민상). Table 2에 달린 설명을 보니, $Score=\frac {\log P} {T}$를 계산해서 가장 높은 score를 가진 후보를 선택한 것 같아요!
+  >- A2 (민상). Table 2에 달린 설명을 보니, $Score=\frac {\log P} {T}$를 계산해서 가장 높은 score를 가진 후보를 선택한 것 같아요!
 
 Q3 (민상). Perplexity에 대해 배울 때면 으레 'perplexity가 낮다고 해서 인간이 느끼기에 좋은 모델은 아닐 수 있다'는 말을 듣고는 하는데요. 이 논문에서 제시한 SSA는 perplexity와의 correlation이 높다는 게 참 흥미로웠습니다. Sensibleness와 specificity가 perplexity와 높은 correlation을 가진 이유를 설명할 수 있을까요?
 

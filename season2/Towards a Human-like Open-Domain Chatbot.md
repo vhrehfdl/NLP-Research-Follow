@@ -1,8 +1,8 @@
-작성 
 
 ## 참여자
 이정훈, 구선민, 김소연, 김지성, 남궁민상, 류지은
 <br><br>
+
 
 ## 토론
 - Q1 (정훈). SSA는 모델 학습이 모두 끝난 후 평가에 사용되는 최종 Metric일까요?  
@@ -40,19 +40,15 @@
 
 - Q5 (민상). 이번 논문을 읽으며 도움이 된 참고자료가 있다면 모아봐도 좋을 것 같아요!
 
->- A5 (민상). 저는 이번 논문을 읽으며 완전 기초적인 개념들부터 복습을 해야 했네요ㅎㅎㅎ
+  >- A5 (민상). 저는 이번 논문을 읽으며 완전 기초적인 개념들부터 복습을 해야 했네요ㅎㅎㅎ
+  > End-to-end model에 대한 기본 개념: [https://towardsdatascience.com/e2e-the-every-purpose-ml-method-5d4f20dafee4](https://towardsdatascience.com/e2e-the-every-purpose-ml-method-5d4f20dafee4)
+  > Transformer 이해하기 (인코더와 디코더가 무엇인지?): [https://jalammar.github.io/illustrated-transformer/](https://jalammar.github.io/illustrated-transformer/)
+  > 자연어 생성 evaluation에 자주 쓰이는 metrics: [https://medium.com/explorations-in-language-and-learning/metrics-for-nlg-evaluation-c89b6a781054](https://medium.com/explorations-in-language-and-learning/metrics-for-nlg-evaluation-c89b6a781054)
+  > Evolved Transformer 아키텍처: [https://arxiv.org/abs/1901.11117](https://arxiv.org/abs/1901.11117)
 
-End-to-end model에 대한 기본 개념: [https://towardsdatascience.com/e2e-the-every-purpose-ml-method-5d4f20dafee4](https://towardsdatascience.com/e2e-the-every-purpose-ml-method-5d4f20dafee4)
+  >- A5 (지은). 스캐터랩에서 나온 자료로, 가장 도움이 되었습니다. [https://speakerdeck.com/scatterlab/towards-a-human-like-open-domain-chatbot-review?slide](https://speakerdeck.com/scatterlab/towards-a-human-like-open-domain-chatbot-review?slide)
 
-Transformer 이해하기 (인코더와 디코더가 무엇인지?): [https://jalammar.github.io/illustrated-transformer/](https://jalammar.github.io/illustrated-transformer/)
-
-자연어 생성 evaluation에 자주 쓰이는 metrics: [https://medium.com/explorations-in-language-and-learning/metrics-for-nlg-evaluation-c89b6a781054](https://medium.com/explorations-in-language-and-learning/metrics-for-nlg-evaluation-c89b6a781054)
-
-Evolved Transformer 아키텍처: [https://arxiv.org/abs/1901.11117](https://arxiv.org/abs/1901.11117)
-
-A5 (지은). 스캐터랩에서 나온 자료로, 가장 도움이 되었습니다. [https://speakerdeck.com/scatterlab/towards-a-human-like-open-domain-chatbot-review?slide](https://speakerdeck.com/scatterlab/towards-a-human-like-open-domain-chatbot-review?slide)
-
-A5. (소연) 감사합니다..
+  >- A5. (소연) 감사합니다..
 
 Q6 (선민) response 후보 중 이전에 response한 것이 있으면 제외하여 SSA를 올렸다고 하는데 이것은 fair한 평가일까요? 하나의 알고리즘으로 보고 fair한 평가가 되는 것인가요? 
 
@@ -70,17 +66,19 @@ A7 (정훈). Open-domain에서 Retrieval Based 방식으로 구현할 때 사용
 
 Q8 (지성).  human evaluation metric 이다보니 train dataset quality 또는, 내용적, 문화적인 환경에 등의 bias에 따라 논문에서 말하는 Sensibleness 조건 (논리적, 일관성 여부, 특히 상식적인지 등)에 부합하는 기준(의미(?)가 다르게 적용되어 영향을 줄것 같다는 생각도 드네요. 다른분들은 어떻게 생각하실지 궁금합니다 (개인적으로는 철학(?)적인 물음이 많이 생기는 paper인 것 같네요)  
 
-A8 (지은).  충분히 있을 수 있다고 봅니다. 예를 들어서 인도에서는 계급 차별이 당연시 되어서, 브라만 계급을 대표하는 이름이 있을 경우 갑자기 존댓말을 한다던가 어법 자체가 완전히 바뀔 수도 있을 것 같은데요. 이런식으로 트레이닝된 챗봇이 미국같은 곳에서도 보편적으로 받아들여질 것 같진 않습니다. bias가 너무 크고 처음부터 다 다시 트레이닝해야 하지 않을까 싶기에, general한 측면이 굉장히 강조될 것 같은데.. 문제는 이 general의 기준을 developed countries에 맞출 경우, 아직 개발도상국이거나 가난한 국가들에서 서비스를 하려고 할 때, 그 국가들 시점에서 또 bias되어 있다고 생각할 수 있을 것 같습니다. 
 
-A8 (소연). 저도 해당 논문 읽으면서, 그리고 nlp task 에서 이러한 대화를 이루는 데이터셋은 어느 문화권? 기준의 상식?을 적용하여 데이터셋을 구축하는건지 궁금했습니다. 이미지보다도 "언어"가 문화권에 영향을 많이 주기 때문에 generalization, fairness 이슈가 더 많이 발생하는 것 같고, 서비스 제공 시에도 더 많은 localization이 필요할 것같은데 그런 생태계가 궁금하네요!
+  >- A8 (지은).  충분히 있을 수 있다고 봅니다. 예를 들어서 인도에서는 계급 차별이 당연시 되어서, 브라만 계급을 대표하는 이름이 있을 경우 갑자기 존댓말을 한다던가 어법 자체가 완전히 바뀔 수도 있을 것 같은데요. 이런식으로 트레이닝된 챗봇이 미국같은 곳에서도 보편적으로 받아들여질 것 같진 않습니다. bias가 너무 크고 처음부터 다 다시 트레이닝해야 하지 않을까 싶기에, general한 측면이 굉장히 강조될 것 같은데.. 문제는 이 general의 기준을 developed countries에 맞출 경우, 아직 개발도상국이거나 가난한 국가들에서 서비스를 하려고 할 때, 그 국가들 시점에서 또 bias되어 있다고 생각할 수 있을 것 같습니다. 
+
+
+  >- A8 (소연). 저도 해당 논문 읽으면서, 그리고 nlp task 에서 이러한 대화를 이루는 데이터셋은 어느 문화권? 기준의 상식?을 적용하여 데이터셋을 구축하는건지 궁금했습니다. 이미지보다도 "언어"가 문화권에 영향을 많이 주기 때문에 generalization, fairness 이슈가 더 많이 발생하는 것 같고, 서비스 제공 시에도 더 많은 localization이 필요할 것같은데 그런 생태계가 궁금하네요!
 
 Q8 (지은).  이런 챗봇들은 사람이 질문하는 것에 대해서 '모두 알고 있다'는 가정하에 진행되는데요. 실제 현실의 사람은 '얼불노'라고 하면 '그게 뭔데?'하고 물어볼 수도 있는데, Meena에서는 도메인 지식이 전부 갖춰져 있다는 전제하에 대화가 진행이 됩니다. 이런식의 approach가 혹시 '덜 인간다운 점'일 수 있다고 지적한 논문같은게 있을까요?
 
 Q9 (소연).  제가 AI 시스구축에 대한 생태계와 nlp 모델의 메모리/컴퓨팅 연산양에 대한 감이 좀 부족해서 궁금한 질문입니다. vision보다는 NLP task가 여러 서비스에 더 접목될 가능성이 높다고 보는데, **section 2.5**에서의 762M 정도면, 1) 일반적인 "서비스 제공 입장"에서 적정한 수준의 모델 크기인지, 2) 서비스를 제하고 보통 nlp 에서 SOTA 또는 주류를 이루는 모델 크기 기준 762M가 어느 정도  준수한 크기(메모리)수준에 속하는 것인지 궁금합니다..(e.g, vision task에서 SOTA는 다양하게 있겠지만 resnet, vgg를 백본으로 쓰는 경우가 많고, 그런 모델에 대해 config에 따라 대충 어느정도 사이즈다를 감안하듯)
 
-A9 (정훈). 1)우선 서비스 제공 입장에서 적정한 수준의 모델 크기는 inference 했을 때 지연 속도가 실서비스에 영향을 주지 않을 정도 일 것 같습니다. 저희 톡집사 같은 경우에는 질문이 입력했을 때 모델 연산 속도가 대략 0.05sec 이하로 맞추는 것으로 지침을 잡고 있습니다. 이 부분은 모델 크기가 커짐에 따라 연산 속도가 오래 걸릴 수 있겠죠?
 
-2) 준수한 크기의 메모리라.. 연구단에서는 사실 모델의 크기가 크든 작든 중요하지는 않은 것 같습니다. 점점 대용량 모델이 발전하고 있고 사실 연구에서는 latency를 신경쓰지 않기 때문이죠. 물론 경량화 연구나 실제 서비스 되는 상황을 가정하는 논문에서는 예외겠죠? 
+  >- A9 (정훈). 1)우선 서비스 제공 입장에서 적정한 수준의 모델 크기는 inference 했을 때 지연 속도가 실서비스에 영향을 주지 않을 정도 일 것 같습니다. 저희 톡집사 같은 경우에는 질문이 입력했을 때 모델 연산 속도가 대략 0.05sec 이하로 맞추는 것으로 지침을 잡고 있습니다. 이 부분은 모델 크기가 커짐에 따라 연산 속도가 오래 걸릴 수 있겠죠?
+  >2) 준수한 크기의 메모리라.. 연구단에서는 사실 모델의 크기가 크든 작든 중요하지는 않은 것 같습니다. 점점 대용량 모델이 발전하고 있고 사실 연구에서는 latency를 신경쓰지 않기 때문이죠. 물론 경량화 연구나 실제 서비스 되는 상황을 가정하는 논문에서는 예외겠죠? 
 
 우선 현재 주류 모델이 Transformer 기반의 BERT 같은 모델이 거의 기본으로 깔려있기 때문에 대부분의 모델크기가 700MB 이상은 되는 것 같습니다.
 

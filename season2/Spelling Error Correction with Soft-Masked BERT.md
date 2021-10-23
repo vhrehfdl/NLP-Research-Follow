@@ -1,0 +1,66 @@
+## 논문
+- 제목 : Spelling Error Correction with Soft-Masked BERT
+- 원본 : [https://arxiv.org/abs/2005.07421](https://arxiv.org/abs/2005.07421)
+- 요약 : [PDF](https://github.com/vhrehfdl/NLP-Research-Follow/blob/main/season2/9.%20Spelling%20Error%20Correction%20with%20Soft-Masked%20BERT.pdf)
+<br>
+
+
+## 참여자
+이정훈, 구선민, 김소연
+<br><br>
+
+
+## 토론
+- Q1. 기존 BERT는 충분한 errors detection 학습이 되지 않아 새로운 구조를 제안하였습니다. 
+그렇다면 다른 PLM 모델 중에서 구조를 바꾸지 않고도 detection을 잘 할 것 같은 모델은 어떤 것이 있을까요? 
+
+  >- A1. BERT 구조와 같은 Masking 방식을 쓰는 류의 알고리즘이 전반적으로 성능이 좋을 것 같습니다. 
+  > 예를 들면 RoBERTa 같은 것도 성능이 좋을 것 같네요. 그리고 토크나이저도 중요할 것 같아요. 저번주에 학습했던 BBPE 같은 것도 좋은 성능을 보여줄 것 같습니다.
+
+<br>
+
+
+- Q2. Soft masking과 Hard masking의 차이가 무엇일까요?
+
+  >- A2. Soft masking은 detection network 아웃풋의 probability를 그대로 쓰는 것이고 hard masking은 특정 threshold( 본 논문은 0.95, 0.9, 0.7 사용) 이상이면 1로 처리하는 걸 의미하는 것 같아요.
+  > - The probability is then utilized to conduct soft-masking of embedding of character at
+the position. Soft masking is an extension of conventional ‘hard masking’ in the sense that the former degenerates to the latter, when the probability of error equals one. The soft-masked embedding at each position is then inputted into the correction network.
+- In Hard-Masked BERT, if the error probability given by the detection network exceeds a threshold (0.95, 0.9, 07), then the embedding of the current character is set to the embedding of the [MASK] token
+
+
+<br>
+
+
+- Q3. 단어 스펠링 체크로 슬랭같은 표준적이지 않은 어휘를 잡을 수 있을까요? 스펠링 체크라는 Task 특성상 정말 다양한 언어가 입력될텐데 이러한 어휘들까지 커버가 가능할까요? 만약 커버하지 못 한다면 어떠한 방법들로 보완할 수 있을까요?
+
+  >- A3. 답변은 아니고, 정훈님 의견처럼 영어에서 슬랭이 있듯 중국어, 일본어는 간체?도 있는데 그런 부분 커버는 어떻게 될지 궁금하네요! 
+
+  >- A3.  보통 특정 언어에 특화된 spelling error correction을 연구하는 것 같습니다. Learning에서 original sequence와 corrected sequence pair로 구성되는데 dataset를 구축할 때 corrected sequence에서 error type 몇 가지를 정의해서 임의로 noise를 생성하여 incorrect sequence를 만들어 구축합니다. 만약 해당하는 슬랭이 error type에 없었다면 교정하지 못했을 것 같습니다. 
+
+
+<br>
+
+
+- Q4. input embedding과 output embedding이 residual connection에 의해 연결되어 있는데 일반적으로 residual connection을 사용하는 목적이 무엇인가요? 원래의 input embedding을 더해주는 게 어떤 효과가 있나요?
+
+  >- A4. 저는 residual connection의 정성적 해석?은 차이를 학습할 수 있게 하는 것이고, 차이를 학습한다는건 더 세밀한 부분을 학습한다고 볼 수 있겠습니다. 즉 residual block에서 identity map 으로 이전 레이어의 아웃풋이 해당 브랜치로 그대로 전달 되니(인풋 그냥 더해주는거) , 그 브랜치는 인풋 정보를 기준으로 좀더 집중해야하는 부분에 대해 학습할 수 있도록? 하는 거라고 이해했습니다. 근데, 저도 resnet 처음 봤을 때 이게 너무 궁금했는데, 위와 같은 해석말고 gradient vanishing 줄일 수 있도록 한다, multi ensemble이다 등등 여러 주장, 분석 논문들이 있는 것 같더라구요~ 다시한번 답변 정리하면서 참고한글은
+
+- [https://itrepo.tistory.com/36](https://itrepo.tistory.com/36)
+- [https://lv99.tistory.com/25](https://lv99.tistory.com/25)
+- [https://www.facebook.com/groups/TensorFlowKR/posts/658639707810424/](https://www.facebook.com/groups/TensorFlowKR/posts/658639707810424/)
+
+
+<br>
+
+
+- Q5. Result 결과보면 BERT-pretrain은 논문에 넣기에 민망할정도로 낮은데(드라마틱한 효과 보여줄려는 것 같긴하지만), 이게 영어 베이스로 학습된 BERT로 correction, network는 중국어로 적용시키니 이렇게 나온것일까요? 만약 pretrain된 BERT로 finetunning 없이 BERT에서 성능 보여준 동일 테스크인데 한국어인걸로 해도 저렇게 성능이 부서지나요? 
+
+  >- A5.  아마도 말씀하신 것처럼 영어 베이스로 학습된 BERT여서 중국어에는 잘 학습이 되지 않은 것 같다고 생각합니다. 한국어의 경우 아직 PLM 기반의 연구가 활발하지 않은 것으로 알고 있습니다.
+
+
+<br>
+
+
+- Q6. Detection, correction 성능을 보면 correction이 전자의 결과에도 영향을 받으니 성능이 더 낮기도 하겠지만, correction은 multi label classification이라서 binary인 detection 보다 더 테스크 난이도가 어려울 것 같습니다. 즉, 두 네트워크 학습 시키는데 필요한 데이터양이나 lr 등등이 다를 필요가 있다는건데,. 본 논문에서는 \lambda로 loss function 비중을 다르게 준 걸로만 해결한 것 같습니다. 이렇게 난이도가 다를 수 있는 네트워크를 동시에 학습시킬 때 어떤 방법이 더 존재할까요? ( + 제가 이해를 잘 한건지 모르겠는데, soft masked 를 correction에 넣어주면.. correction network는 틀리지 않은 데이터를 훨씬 많이 받아서 학습하게 되는것 아닌가요? 
+
+  >- A6. 저도 해당 논문에서 나온 방법대로 난이도가 어려운?(노이즈가 많은) 데이터가 들어오는 네트워크에는 l2 값을 조정해서 학습을 덜 하도록 조정할 것 같습니다. 아니면 애초에 loss function 자체를 노이즈에 비교적 강건한 function을 사용할 것 같은데 어떤 loss function이 있는지까지는 잘 모르겠네요..

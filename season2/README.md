@@ -1,6 +1,4 @@
-## 가짜 연구소 NLP 논문 리뷰 스터디
-<br>
-
+# 가짜 연구소 NLP 논문 리뷰 스터디
 
 ## 스터디 내용
 NLP 논문 Review & Discussion
